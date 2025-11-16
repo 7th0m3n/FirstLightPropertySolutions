@@ -39,6 +39,24 @@ const trustPoints = [
   'Fast, reliable closings backed by experience'
 ];
 
+const investorHighlights = [
+  {
+    title: 'Reliable Deal Flow',
+    description:
+      'Access well-vetted off-market opportunities aligned with your portfolio goals.'
+  },
+  {
+    title: 'Local Market Insight',
+    description:
+      'Leverage on-the-ground knowledge to evaluate returns and mitigate risk.'
+  },
+  {
+    title: 'End-to-End Support',
+    description:
+      'From due diligence to closing, our team keeps transactions moving smoothly.'
+  }
+];
+
 export default function HomePage() {
   return (
     <>
@@ -72,7 +90,7 @@ export default function HomePage() {
             </div>
             <div className="flex flex-col gap-4 sm:flex-row">
               <a
-                href="#request-offer"
+                href="#contact"
                 className="inline-flex items-center justify-center rounded-full bg-accent px-8 py-3 text-base font-semibold text-primary shadow-[0_20px_45px_-25px_rgba(245,192,92,0.7)] transition hover:translate-y-[-1px] hover:shadow-[0_30px_60px_-25px_rgba(245,192,92,0.55)]"
               >
                 Get My Cash Offer
@@ -87,21 +105,35 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
-          <div className="grid gap-8 md:grid-cols-3">
-            {benefits.map((benefit) => (
-              <div
-                key={benefit.title}
-                className="flex flex-col gap-4 rounded-3xl border border-white/60 bg-white px-8 py-10 shadow-soft transition hover:-translate-y-1 hover:shadow-[0_35px_80px_-50px_rgba(26,46,68,0.65)]"
-              >
-                <h3 className="text-xl font-semibold text-primary">
-                  {benefit.title}
-                </h3>
-                <p className="text-base leading-relaxed text-slate">
-                  {benefit.description}
-                </p>
-              </div>
-            ))}
+        <section
+          id="for-sellers"
+          className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8"
+        >
+          <div className="flex flex-col gap-12">
+            <div className="max-w-2xl">
+              <h2 className="text-3xl font-semibold text-primary sm:text-4xl">
+                For Home Sellers
+              </h2>
+              <p className="mt-4 text-base leading-relaxed text-slate">
+                A simple, respectful experience that helps you move on without
+                the stress of repairs or long listings.
+              </p>
+            </div>
+            <div className="grid gap-8 md:grid-cols-3">
+              {benefits.map((benefit) => (
+                <div
+                  key={benefit.title}
+                  className="flex flex-col gap-4 rounded-3xl border border-white/60 bg-white px-8 py-10 shadow-soft transition hover:-translate-y-1 hover:shadow-[0_35px_80px_-50px_rgba(26,46,68,0.65)]"
+                >
+                  <h3 className="text-xl font-semibold text-primary">
+                    {benefit.title}
+                  </h3>
+                  <p className="text-base leading-relaxed text-slate">
+                    {benefit.description}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -161,7 +193,39 @@ export default function HomePage() {
         </section>
 
         <section
-          id="request-offer"
+          id="for-investors"
+          className="bg-[#F8FAFC] px-4 py-20 sm:px-6 lg:px-8"
+        >
+          <div className="mx-auto max-w-6xl">
+            <div className="max-w-2xl">
+              <h2 className="text-3xl font-semibold text-primary sm:text-4xl">
+                For Real Estate Investors
+              </h2>
+              <p className="mt-4 text-base leading-relaxed text-slate">
+                Partner with a team that sources quality properties and keeps
+                your pipeline consistent.
+              </p>
+            </div>
+            <div className="mt-12 grid gap-8 md:grid-cols-3">
+              {investorHighlights.map((item) => (
+                <div
+                  key={item.title}
+                  className="flex flex-col gap-4 rounded-3xl border border-primary/5 bg-white px-8 py-10 shadow-[0_20px_60px_-40px_rgba(26,46,68,0.55)] transition hover:-translate-y-1 hover:border-accent/50"
+                >
+                  <h3 className="text-xl font-semibold text-primary">
+                    {item.title}
+                  </h3>
+                  <p className="text-base leading-relaxed text-slate">
+                    {item.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section
+          id="contact"
           className="bg-primary px-4 py-20 text-white sm:px-6 lg:px-8"
         >
           <div className="mx-auto flex max-w-3xl flex-col items-center gap-6 text-center">
@@ -172,7 +236,7 @@ export default function HomePage() {
               Get your free, no-obligation cash offer today.
             </p>
             <a
-              href="#"
+              href="mailto:hello@firstlightpropertysolutions.com"
               className="inline-flex items-center justify-center rounded-full bg-accent px-8 py-3 text-base font-semibold text-primary shadow-[0_20px_45px_-25px_rgba(245,192,92,0.7)] transition hover:translate-y-[-1px] hover:shadow-[0_30px_60px_-25px_rgba(245,192,92,0.55)]"
             >
               Request My Offer

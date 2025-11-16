@@ -2,7 +2,10 @@ import { LogoMark } from './LogoMark';
 
 const navItems = [
   { label: 'Home', href: '#home' },
-  { label: 'How It Works', href: '#how-it-works' }
+  { label: 'How It Works', href: '#how-it-works' },
+  { label: 'For Sellers', href: '#for-sellers' },
+  { label: 'For Investors', href: '#for-investors' },
+  { label: 'Contact', href: '#contact' }
 ];
 
 export function NavBar() {
