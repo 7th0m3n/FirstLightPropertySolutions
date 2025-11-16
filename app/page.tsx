@@ -64,12 +64,9 @@ const investorHighlights = [
 export default function HomePage() {
   const [isOfferModalOpen, setIsOfferModalOpen] = useState(false);
 
-  const openOfferModal = () => setIsOfferModalOpen(true);
-  const closeOfferModal = () => setIsOfferModalOpen(false);
-
   return (
     <>
-      <OfferRequestModal isOpen={isOfferModalOpen} onClose={closeOfferModal} />
+      <OfferRequestModal isOpen={isOfferModalOpen} onClose={() => setIsOfferModalOpen(false)} />
       <NavBar />
       <main className="bg-background">
         <section
@@ -101,7 +98,7 @@ export default function HomePage() {
             <div className="flex flex-col gap-4 sm:flex-row">
               <button
                 type="button"
-                onClick={openOfferModal}
+                onClick={() => setIsOfferModalOpen(true)}
                 className="inline-flex items-center justify-center rounded-full bg-accent px-8 py-3 text-base font-semibold text-primary shadow-[0_20px_45px_-25px_rgba(245,192,92,0.7)] transition hover:translate-y-[-1px] hover:shadow-[0_30px_60px_-25px_rgba(245,192,92,0.55)]"
               >
                 Get My Cash Offer
@@ -147,7 +144,7 @@ export default function HomePage() {
             </div>
             <button
               type="button"
-              onClick={openOfferModal}
+              onClick={() => setIsOfferModalOpen(true)}
               className="self-start rounded-full bg-accent px-6 py-3 text-base font-semibold text-primary shadow-[0_20px_45px_-25px_rgba(245,192,92,0.7)] transition hover:-translate-y-0.5 hover:shadow-[0_30px_60px_-25px_rgba(245,192,92,0.55)]"
             >
               Get My Cash Offer
@@ -255,7 +252,7 @@ export default function HomePage() {
             </p>
             <button
               type="button"
-              onClick={openOfferModal}
+              onClick={() => setIsOfferModalOpen(true)}
               className="inline-flex items-center justify-center rounded-full bg-accent px-8 py-3 text-base font-semibold text-primary shadow-[0_20px_45px_-25px_rgba(245,192,92,0.7)] transition hover:translate-y-[-1px] hover:shadow-[0_30px_60px_-25px_rgba(245,192,92,0.55)]"
             >
               Get My Cash Offer
