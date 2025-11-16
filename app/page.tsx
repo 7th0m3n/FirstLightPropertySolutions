@@ -49,8 +49,12 @@ export default function HomePage() {
           className="relative overflow-hidden pb-24 pt-16 sm:pb-32 sm:pt-24"
         >
           <div className="absolute inset-0">
-            <div className="h-full w-full bg-gradient-to-br from-primary via-[#253852] to-[#3C4A57]" />
-            <div className="absolute inset-0 bg-gradient-to-br from-white/15 via-transparent to-primary/40" />
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: "url('/hero-sunrise.png')" }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/85 via-primary/70 to-[#3C4A57]/80" />
+            <div className="absolute inset-0 bg-gradient-to-t from-primary/50 via-transparent to-transparent" />
           </div>
           <div className="relative mx-auto flex max-w-6xl flex-col gap-10 px-4 sm:px-6 lg:px-8">
             <div className="max-w-xl">
