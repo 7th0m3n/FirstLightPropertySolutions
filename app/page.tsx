@@ -1,3 +1,7 @@
+'use client';
+
+import { useState } from 'react';
+import { OfferRequestModal } from '@/components/OfferRequestModal';
 import { NavBar } from '@/components/NavBar';
 
 const benefits = [
@@ -58,8 +62,14 @@ const investorHighlights = [
 ];
 
 export default function HomePage() {
+  const [isOfferModalOpen, setIsOfferModalOpen] = useState(false);
+
+  const openOfferModal = () => setIsOfferModalOpen(true);
+  const closeOfferModal = () => setIsOfferModalOpen(false);
+
   return (
     <>
+      <OfferRequestModal isOpen={isOfferModalOpen} onClose={closeOfferModal} />
       <NavBar />
       <main className="bg-background">
         <section
@@ -89,12 +99,13 @@ export default function HomePage() {
               </p>
             </div>
             <div className="flex flex-col gap-4 sm:flex-row">
-              <a
-                href="#contact"
+              <button
+                type="button"
+                onClick={openOfferModal}
                 className="inline-flex items-center justify-center rounded-full bg-accent px-8 py-3 text-base font-semibold text-primary shadow-[0_20px_45px_-25px_rgba(245,192,92,0.7)] transition hover:translate-y-[-1px] hover:shadow-[0_30px_60px_-25px_rgba(245,192,92,0.55)]"
               >
                 Get My Cash Offer
-              </a>
+              </button>
               <a
                 href="#how-it-works"
                 className="inline-flex items-center justify-center rounded-full border border-white/40 px-8 py-3 text-base font-semibold text-white transition hover:border-white hover:text-white"
@@ -134,6 +145,13 @@ export default function HomePage() {
                 </div>
               ))}
             </div>
+            <button
+              type="button"
+              onClick={openOfferModal}
+              className="self-start rounded-full bg-accent px-6 py-3 text-base font-semibold text-primary shadow-[0_20px_45px_-25px_rgba(245,192,92,0.7)] transition hover:-translate-y-0.5 hover:shadow-[0_30px_60px_-25px_rgba(245,192,92,0.55)]"
+            >
+              Get My Cash Offer
+            </button>
           </div>
         </section>
 
@@ -226,21 +244,25 @@ export default function HomePage() {
 
         <section
           id="contact"
-          className="bg-primary px-4 py-20 text-white sm:px-6 lg:px-8"
+          className="bg-[#F6F8FA] px-4 py-20 text-primary sm:px-6 lg:px-8"
         >
-          <div className="mx-auto flex max-w-3xl flex-col items-center gap-6 text-center">
+          <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 text-center sm:items-start sm:text-left">
             <h2 className="text-3xl font-semibold sm:text-4xl">
               Ready for a fresh start?
             </h2>
-            <p className="text-base leading-relaxed text-white/80">
-              Get your free, no-obligation cash offer today.
+            <p className="text-base leading-relaxed text-slate-700">
+              Tell us a little about your property and your situation. We’ll review the details and follow up with a clean, no-obligation cash offer. No repairs, no showings, and no pressure to say yes.
             </p>
-            <a
-              href="mailto:hello@firstlightpropertysolutions.com"
+            <button
+              type="button"
+              onClick={openOfferModal}
               className="inline-flex items-center justify-center rounded-full bg-accent px-8 py-3 text-base font-semibold text-primary shadow-[0_20px_45px_-25px_rgba(245,192,92,0.7)] transition hover:translate-y-[-1px] hover:shadow-[0_30px_60px_-25px_rgba(245,192,92,0.55)]"
             >
-              Request My Offer
-            </a>
+              Get My Cash Offer
+            </button>
+            <p className="text-sm text-slate-500">
+              No obligation, no repairs, no agent commissions. Your information is kept private.
+            </p>
           </div>
         </section>
       </main>
