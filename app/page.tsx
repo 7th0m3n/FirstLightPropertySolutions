@@ -24,17 +24,17 @@ const steps = [
   {
     step: 'Step 1',
     title: 'Tell us about the property.',
-    description: 'Share a few details through our short, guided form.'
+    description: 'Share a few details through our short form or a quick phone call. Things like the address, condition, and your timeline help us run our numbers quickly.'
   },
   {
     step: 'Step 2',
     title: 'Get a clean, no-pressure cash offer.',
-    description: 'No fees, no agent commissions, no surprises—just clarity.'
+    description: 'We review the property and send you a clear, written cash offer with no fees, no agent commissions, and no surprises. You can take your time and there’s zero obligation to say yes.'
   },
   {
     step: 'Step 3',
     title: 'Close quickly and move on.',
-    description: 'We handle everything from paperwork to cleanup.'
+    description: 'If the offer works for you, we coordinate with a trusted local title company, handle the paperwork, and close on the date you choose. You walk away with cash and a clean slate.'
   }
 ];
 
@@ -48,17 +48,17 @@ const investorHighlights = [
   {
     title: 'Reliable Deal Flow',
     description:
-      'Access well-vetted off-market opportunities aligned with your portfolio goals.'
+      'Access well-vetted off-market opportunities aligned with your buy box—single-family homes, small multi-family, and select land plays.'
   },
   {
     title: 'Local Market Insight',
     description:
-      'Leverage on-the-ground knowledge to evaluate returns and mitigate risk.'
+      'Leverage on-the-ground knowledge for comps, ARV ranges, and realistic rehab assumptions so you’re never underwriting blind.'
   },
   {
     title: 'End-to-End Support',
     description:
-      'From due diligence to closing, our team keeps transactions moving smoothly.'
+      'From first look to assignment and closing, we keep communication tight so you always know where a deal stands and what’s needed from you.'
   }
 ];
 
@@ -114,6 +114,9 @@ export default function HomePage() {
               </a>
             </div>
           </div>
+          <p className="mt-6 text-xs text-slate-500">
+            Most sellers we work with can go from first conversation to closing in as little as 7–21 days, depending on title and your schedule.
+          </p>
         </section>
 
         <section
@@ -164,9 +167,8 @@ export default function HomePage() {
               <h2 className="text-3xl font-semibold text-primary sm:text-4xl">
                 How It Works
               </h2>
-              <p className="mt-4 text-base leading-relaxed text-slate">
-                A straightforward, transparent process built to help you move
-                forward with confidence.
+              <p className="mt-3 text-slate-700 max-w-2xl">
+                A straightforward, transparent process built to help you move forward with confidence.
               </p>
             </div>
             <div className="mt-12 grid gap-8 md:grid-cols-3">
@@ -217,11 +219,10 @@ export default function HomePage() {
           <div className="mx-auto max-w-6xl">
             <div className="max-w-2xl">
               <h2 className="text-3xl font-semibold text-primary sm:text-4xl">
-                For Real Estate Investors
+                For Cash Buyers & Real Estate Investors
               </h2>
-              <p className="mt-4 text-base leading-relaxed text-slate">
-                Partner with a team that sources quality properties and keeps
-                your pipeline consistent.
+              <p className="mt-3 text-slate-700 max-w-2xl">
+                If you’re a serious cash buyer looking for consistent, direct-to-seller opportunities, we’re built to keep your pipeline moving. We focus on sourcing properties where there’s a real value-add or long-term hold story—not just anything we can tie up.
               </p>
             </div>
             <div className="mt-12 grid gap-8 md:grid-cols-3">
@@ -238,6 +239,18 @@ export default function HomePage() {
                   </p>
                 </div>
               ))}
+            </div>
+            <div className="mt-8 flex flex-col gap-3 text-slate-700 sm:flex-row sm:items-center">
+              <p className="text-sm">
+                Want to see deals before they hit the wider market?
+              </p>
+              <button
+                type="button"
+                onClick={() => setIsInvestorModalOpen(true)}
+                className="inline-flex items-center justify-center rounded-md bg-[#1A2E44] px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-[#142234]"
+              >
+                Join Our Buyers List
+              </button>
             </div>
             <button
               type="button"
