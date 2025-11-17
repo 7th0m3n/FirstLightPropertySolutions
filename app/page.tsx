@@ -8,15 +8,18 @@ import { NavBar } from '@/components/NavBar';
 const benefits = [
   {
     title: 'Fast Cash Offers',
-    description: 'Get a fair, direct offer in just 24 hours.'
+    description:
+      'Get a fair, written cash offer in as little as 24 hours so you can make a decision with clarity.'
   },
   {
     title: 'No Repairs, No Showings',
-    description: 'We buy as-is, so you skip the headaches and the costs.'
+    description:
+      'We buy as-is. No contractors, no open houses, no strangers walking through your home every weekend.'
   },
   {
     title: 'You Choose the Closing Date',
-    description: 'Move forward on the timeline that fits your life.'
+    description:
+      'Close in as little as 7–14 days or pick a later date that fits your life.'
   }
 ];
 
@@ -39,9 +42,21 @@ const steps = [
 ];
 
 const trustPoints = [
-  'Transparent offers with no hidden terms',
-  'Local team focused on real solutions',
-  'Fast, reliable closings backed by experience'
+  {
+    title: 'Transparent offers with no hidden terms',
+    description:
+      'We show you how we arrive at our numbers and lay out your options clearly, so you always understand exactly what you’re agreeing to.'
+  },
+  {
+    title: 'Local team focused on real solutions',
+    description:
+      'We know the neighborhoods we buy in and tailor offers around your actual situation, not just the property, so you can make the choice that’s best for you.'
+  },
+  {
+    title: 'Fast, reliable closings backed by experience',
+    description:
+      'We work with established title companies and closing partners so there are no last-minute surprises—just a predictable closing and a clean exit.'
+  }
 ];
 
 const investorHighlights = [
@@ -94,8 +109,11 @@ export default function HomePage() {
               <h1 className="text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">
                 First Light Property Solutions
               </h1>
-              <p className="mt-6 text-lg leading-relaxed text-white/85 sm:text-xl">
-                Your clean, simple way out of a difficult property.
+              <p className="mt-4 max-w-xl text-lg text-white/85 sm:text-xl">
+                Your clean, simple way out of a difficult property—without repairs, showings, or months of waiting.
+              </p>
+              <p className="mt-3 max-w-xl text-sm text-white/80 sm:text-base">
+                Whether you’re dealing with an inherited house, a rental that’s become a headache, or a property that just needs too much work, we give you a clear cash offer and a predictable closing date.
               </p>
             </div>
             <div className="flex flex-col gap-4 sm:flex-row">
@@ -114,8 +132,8 @@ export default function HomePage() {
               </a>
             </div>
           </div>
-          <p className="mt-6 text-xs text-slate-500">
-            Most sellers we work with can go from first conversation to closing in as little as 7–21 days, depending on title and your schedule.
+          <p className="mt-3 text-xs text-white/70">
+            No obligation. No hidden fees. No agent commissions.
           </p>
         </section>
 
