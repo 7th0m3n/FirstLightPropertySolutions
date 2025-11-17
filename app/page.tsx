@@ -286,10 +286,17 @@ export default function HomePage() {
           </div>
         </section>
       </main>
-      <footer className="bg-white">
-        <div className="mx-auto max-w-6xl px-4 py-6 text-sm text-slate/70 sm:px-6 lg:px-8">
-          © {new Date().getFullYear()} First Light Property Solutions. All
-          rights reserved.
+      <footer className="mt-16 border-t border-slate-200 bg-white">
+        <div className="mx-auto max-w-6xl space-y-2 px-4 py-8 text-sm text-slate-600 sm:px-6 lg:px-8">
+          <p className="text-slate-700">
+            © {new Date().getFullYear()} First Light Property Solutions. All rights reserved.
+          </p>
+          <p>Email: info@firstlightpropertysolutions.com</p>
+          <p>Phone: (XXX) XXX-XXXX</p>
+          <p>Serving: Greater Philadelphia and surrounding areas.</p>
+          <p className="text-xs text-slate-500 max-w-3xl">
+            We are real estate investors. We are not attorneys, CPAs, or financial advisors. Information on this site is for informational purposes only. Always consult with the appropriate professional before making financial decisions.
+          </p>
         </div>
       </footer>
     </>
