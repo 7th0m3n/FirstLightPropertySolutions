@@ -7,6 +7,12 @@
   color: #1A2E44;
 }
 
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -16,6 +22,12 @@ body {
     BlinkMacSystemFont, 'Segoe UI', sans-serif;
   background-color: #F6F8FA;
   color: #1A2E44;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 a {

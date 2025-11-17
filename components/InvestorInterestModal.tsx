@@ -1,6 +1,6 @@
 'use client';
 
-import type { FormEvent } from 'react';
+import { useState, type FormEvent } from 'react';
 
 type InvestorInterestModalProps = {
   isOpen: boolean;
@@ -12,12 +12,40 @@ export function InvestorInterestModal({ isOpen, onClose }: InvestorInterestModal
     return null;
   }
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const formData = new FormData(event.currentTarget);
+    setErrorMessage(null);
+    setIsSubmitting(true);
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
     const data = Object.fromEntries(formData.entries());
-    console.log('Investor interest submitted', data);
-    onClose();
+
+    try {
+      const response = await fetch('/api/investor-leads', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (!response.ok) {
+        const json = (await response.json().catch(() => null)) as { error?: string } | null;
+        throw new Error(json?.error ?? 'Failed to submit investor interest');
+      }
+
+      form.reset();
+      onClose();
+    } catch (error) {
+      console.error('Investor interest submission failed', error);
+      setErrorMessage(error instanceof Error ? error.message : 'Failed to submit investor interest');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -197,9 +225,13 @@ export function InvestorInterestModal({ isOpen, onClose }: InvestorInterestModal
             <button
               type="submit"
               className="inline-flex w-full items-center justify-center rounded-md bg-primary px-6 py-3 text-base font-semibold text-white transition hover:bg-[#142234]"
+              disabled={isSubmitting}
             >
-              Join Investors List
+              {isSubmitting ? 'Submitting…' : 'Join Investors List'}
             </button>
+            {errorMessage ? (
+              <p className="text-center text-xs text-red-600 sm:text-sm">{errorMessage}</p>
+            ) : null}
             <p className="text-center text-xs text-slate-500 sm:text-sm">
               We’ll reach out with curated opportunities that align with your goals. Your information stays private.
             </p>

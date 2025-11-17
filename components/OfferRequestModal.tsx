@@ -1,6 +1,6 @@
 'use client';
 
-import type { FormEvent } from 'react';
+import { useState, type FormEvent } from 'react';
 
 type OfferRequestModalProps = {
   isOpen: boolean;
@@ -12,12 +12,40 @@ export function OfferRequestModal({ isOpen, onClose }: OfferRequestModalProps) {
     return null;
   }
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const formData = new FormData(event.currentTarget);
+    setErrorMessage(null);
+    setIsSubmitting(true);
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
     const data = Object.fromEntries(formData.entries());
-    console.log('Offer request submitted', data);
-    onClose();
+
+    try {
+      const response = await fetch('/api/seller-leads', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (!response.ok) {
+        const json = (await response.json().catch(() => null)) as { error?: string } | null;
+        throw new Error(json?.error ?? 'Failed to submit offer request');
+      }
+
+      form.reset();
+      onClose();
+    } catch (error) {
+      console.error('Offer request submission failed', error);
+      setErrorMessage(error instanceof Error ? error.message : 'Failed to submit offer request');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -223,9 +251,13 @@ export function OfferRequestModal({ isOpen, onClose }: OfferRequestModalProps) {
             <button
               type="submit"
               className="inline-flex w-full items-center justify-center rounded-md bg-[#1A2E44] px-6 py-3 text-base font-semibold text-white transition hover:bg-[#142234]"
+              disabled={isSubmitting}
             >
-              Request My Cash Offer
+              {isSubmitting ? 'Submitting…' : 'Request My Cash Offer'}
             </button>
+            {errorMessage ? (
+              <p className="text-center text-xs text-red-600 sm:text-sm">{errorMessage}</p>
+            ) : null}
             <p className="text-center text-xs text-slate-500 sm:text-sm">
               No obligation, no repairs, no agent commissions. Your information is kept private.
             </p>

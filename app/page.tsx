@@ -99,7 +99,7 @@ export default function HomePage() {
             <div className="absolute inset-0 bg-gradient-to-br from-primary/85 via-primary/70 to-[#3C4A57]/80" />
             <div className="absolute inset-0 bg-gradient-to-t from-primary/50 via-transparent to-transparent" />
           </div>
-          <div className="relative mx-auto flex max-w-6xl flex-col gap-10 px-4 sm:px-6 lg:px-8">
+          <div className="relative mx-auto flex w-full max-w-screen-xl flex-col gap-10 px-4 sm:px-6 lg:px-8">
             <div className="max-w-xl">
               <span className="text-sm font-semibold uppercase tracking-[0.35em] text-accent/80">
                 First Light Property Solutions
@@ -139,7 +139,7 @@ export default function HomePage() {
 
         <section
           id="for-sellers"
-          className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8"
+          className="mx-auto w-full max-w-screen-xl px-4 py-20 sm:px-6 lg:px-8"
         >
           <div className="flex flex-col gap-12">
             <div className="max-w-3xl space-y-4">
@@ -193,7 +193,7 @@ export default function HomePage() {
           id="how-it-works"
           className="bg-white px-4 py-20 sm:px-6 lg:px-8"
         >
-          <div className="mx-auto max-w-6xl">
+          <div className="mx-auto w-full max-w-screen-xl">
             <div className="max-w-2xl">
               <h2 className="text-3xl font-semibold text-primary sm:text-4xl">
                 How It Works
@@ -226,7 +226,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
+        <section className="mx-auto w-full max-w-screen-xl px-4 py-20 sm:px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
             <div>
               <h2 className="text-3xl font-semibold text-primary sm:text-4xl">
@@ -263,7 +263,7 @@ export default function HomePage() {
           id="for-investors"
           className="bg-[#F8FAFC] px-4 py-20 sm:px-6 lg:px-8"
         >
-          <div className="mx-auto max-w-6xl">
+          <div className="mx-auto w-full max-w-screen-xl">
             <div className="max-w-2xl">
               <h2 className="text-3xl font-semibold text-primary sm:text-4xl">
                 For Cash Buyers & Real Estate Investors
@@ -327,7 +327,7 @@ export default function HomePage() {
         </section>
       </main>
       <footer className="mt-16 border-t border-slate-200 bg-white">
-        <div className="mx-auto max-w-6xl space-y-2 px-4 py-8 text-sm text-slate-600 sm:px-6 lg:px-8">
+        <div className="mx-auto w-full max-w-screen-xl space-y-2 px-4 py-8 text-sm text-slate-600 sm:px-6 lg:px-8">
           <p className="text-slate-700">
             © {new Date().getFullYear()} First Light Property Solutions. All rights reserved.
           </p>

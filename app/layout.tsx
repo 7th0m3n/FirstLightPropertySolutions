@@ -20,8 +20,10 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html lang="en" className={inter.variable}>
-      <body className="bg-background text-primary antialiased">{children}</body>
+    <html lang="en" className={`${inter.variable} h-full`}>
+      <body className="flex min-h-screen w-full flex-col overflow-x-hidden bg-background text-primary antialiased">
+        {children}
+      </body>
     </html>
   );
 }

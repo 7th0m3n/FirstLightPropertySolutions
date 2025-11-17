@@ -11,7 +11,7 @@ const navItems = [
 export function NavBar() {
   return (
     <header className="sticky top-0 z-50 bg-white/90 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex w-full max-w-screen-xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <a href="#home" className="group flex items-center gap-3">
           <LogoMark />
           <div className="flex flex-col">
@@ -34,7 +34,7 @@ export function NavBar() {
             </a>
           ))}
         </nav>
-        <nav className="flex items-center gap-3 text-sm font-medium text-slate sm:hidden">
+        <nav className="flex flex-wrap items-center justify-center gap-3 text-sm font-medium text-slate sm:hidden">
           {navItems.map((item) => (
             <a
               key={item.href}
