@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { OfferRequestModal } from '@/components/OfferRequestModal';
+import { InvestorInterestModal } from '@/components/InvestorInterestModal';
 import { NavBar } from '@/components/NavBar';
 
 const benefits = [
@@ -63,10 +64,12 @@ const investorHighlights = [
 
 export default function HomePage() {
   const [isOfferModalOpen, setIsOfferModalOpen] = useState(false);
+  const [isInvestorModalOpen, setIsInvestorModalOpen] = useState(false);
 
   return (
     <>
       <OfferRequestModal isOpen={isOfferModalOpen} onClose={() => setIsOfferModalOpen(false)} />
+      <InvestorInterestModal isOpen={isInvestorModalOpen} onClose={() => setIsInvestorModalOpen(false)} />
       <NavBar />
       <main className="bg-background">
         <section
@@ -236,6 +239,13 @@ export default function HomePage() {
                 </div>
               ))}
             </div>
+            <button
+              type="button"
+              onClick={() => setIsInvestorModalOpen(true)}
+              className="mt-12 inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-base font-semibold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-[#142234]"
+            >
+              Join Investors List
+            </button>
           </div>
         </section>
 
