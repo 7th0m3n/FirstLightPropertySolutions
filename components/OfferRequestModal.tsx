@@ -26,7 +26,8 @@ export function OfferRequestModal({ isOpen, onClose }: OfferRequestModalProps) {
       onClick={onClose}
     >
       <div
-        className="relative mx-4 w-full max-w-2xl rounded-lg bg-white p-6 shadow-xl md:p-8"
+        className="relative mx-4 w-full max-w-2xl overflow-y-auto rounded-lg bg-white p-6 shadow-xl md:p-8"
+        style={{ maxHeight: '90vh' }}
         onClick={(event) => event.stopPropagation()}
       >
         <button
@@ -48,7 +49,7 @@ export function OfferRequestModal({ isOpen, onClose }: OfferRequestModalProps) {
           </p>
         </div>
 
-        <form className="mt-6 space-y-8 overflow-y-auto pr-1" onSubmit={handleSubmit}>
+        <form className="mt-6 space-y-8 pr-1" onSubmit={handleSubmit}>
           <div className="space-y-4">
             <h3 className="text-sm font-semibold uppercase tracking-[0.35em] text-accent">
               Contact Details
